@@ -19,31 +19,37 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+    <!-- Can optionally be placed in the header tag below, this is personal preference. MDN endorses both ways. Shouldn't vary between webpages. -->
+    <nav>
+        <img src="http://via.placeholder.com/200x50" alt="Template Website Logo">
+        <ul>
+            <li>
+                <a href="#">Link 1</a>
+            </li>
+            <li>
+                <a href="#">Link 2</a>
+            </li>
+            <li>
+                <a href="#">Link 3</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Usually a big strip on the top of the page with a header and/or image product (i.e. a product landing page). Can also be above the navigation bar -->
     <header>
         <h1>h1.title</h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">Link 1</a>
-                </li>
-                <li>
-                    <a href="#">Link 2</a>
-                </li>
-                <li>
-                    <a href="#">Link 3</a>
-                </li>
-            </ul>
-        </nav>
     </header>
 
+    <!-- Main content of page starts here. The content in the main tag should contain most of the UNIQUE content of the given webpage and will vary between pages-->
     <main>
+        <!-- Article element specifies independent, self-contained content and can consist of "sections", which is a thematic grouping of content-->
         <article>
             <header>
                 <h1>article header h1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc
-                    vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat
-                    est, eu porta velit mollis nec.</p>
             </header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel
+                vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu
+                porta velit mollis nec.</p>
             <section>
                 <h2>article section h2</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc
@@ -58,12 +64,6 @@
                     est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper
                     lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
             </section>
-            <footer>
-                <h3>article footer h3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc
-                    vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat
-                    est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-            </footer>
         </article>
 
         <aside>
@@ -76,9 +76,10 @@
     </main>
 
     <footer>
-        <h3>footer</h3>
+        <p>&copy; 2018 by Faizan Tahir. All rights reserved.</p>
     </footer>
 
+    <!-- All scripts should be loaded AFTER main page is loaded. -->
     <script src="js/main.js"></script>
 </body>
 
