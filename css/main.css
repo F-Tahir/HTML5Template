@@ -29,10 +29,9 @@ create a new class*/
 .full-width-wrapper {
     width: 100%;
     padding: 10px;
-    text-align: justify;
 }
 
-.fixed-width-1280 {
+.fixed-width-1280-wrapper {
     max-width: 1280px;
     margin: 0 auto;
 }
