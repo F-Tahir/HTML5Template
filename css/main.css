@@ -1,7 +1,7 @@
-
 /* ==========================================================================
    Styles for older browsers
    ========================================================================== */
+
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -9,28 +9,38 @@
     padding: 0.2em 0;
 }
 
-   header, section, footer, aside, nav, main, article, figure {
-    display: block; 
+header,
+section,
+footer,
+aside,
+nav,
+main,
+article,
+figure {
+    display: block;
 }
 
 /* ==========================================================================
    User-defined styles
    ========================================================================== */
-   .wrapper {
-       width: 100%;
-       max-width: 1280px;
-       margin: 0 auto;
-   }
+
+/* These wrappers should not change. For anything extra such as background colours, 
+create a new class*/
+.full-width-wrapper {
+    width: 100%;
+    padding: 10px;
+    text-align: justify;
+}
+
+.fixed-width-1280 {
+    max-width: 1280px;
+    margin: 0 auto;
+}
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
 
- /*Apply to elements that should not be visiblein the document but are needed for screenreaders.
- For example, if the website has a graph, the visually impaired cannot see this, so you can
- add a tabular version but apply this class so that it is not shown on the page but screenreaders
- can still pick this up. Note that display; none;, isibility: hidden; or width/height set to 0 will 
- not allow screenreaders to read out, so must not be used as an alternative. */  
 .sr-only {
     position: absolute;
     left: -10000px;
@@ -38,8 +48,8 @@
     height: 1px;
     top: auto;
     overflow: hidden;
-  }
-  
+}
+
 .hidden {
     display: none !important;
     visibility: hidden;

@@ -4,6 +4,8 @@
 Type `git clone https://github.com/F-Tahir/HTML5Template.git` to clone the project
 
 ## Version controlling the cloned project
+Before version controlling, make sure the project is using the latest version of _normalize.css_ from here: https://necolas.github.io/normalize.css/. All other files are custom and should not get outdated.
+
 1. Navigate into the new project on terminal (`cd path/to/proj`)
 2. Type `git init`
 3. Add a new repository on GitHub/BitBucket
@@ -33,6 +35,8 @@ Contains styling for older browsers, as well as common helpers for screenreaders
 Optional, but recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. 
 
 **Not recommended**: If you wish to remove these files, also remove the stylesheet reference in `index.html`'s `header` tag
+
+**NOTE**: Ensure that the css files are updated every few months. Can get the latest here: https://necolas.github.io/normalize.css/
 
 ## humans.txt
 humans.txt is an initiative for who built the website. Read more at http://humanstxt.org/. This file is optional.
