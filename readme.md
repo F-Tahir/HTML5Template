@@ -39,10 +39,10 @@ Optional, but recommended css files that allow various browsers to render elemen
 **NOTE**: Ensure that the css files are updated every few months. Can get the latest here: https://necolas.github.io/normalize.css/
 
 ## humans.txt
-humans.txt is an initiative for who built the website. Read more at http://humanstxt.org/. This file is optional.
+_This file is optional._ humans.txt is an initiative for who built the website. Read more at http://humanstxt.org/. 
 
 ## robots.txt
-Web crawlers often traverse the web in order to index web content (i.e. Google) or to scan for email addresses (spammers often do this). This file allows you to define rules that specify which pages should not be searched. Note that you **should not** include any hidden information as this page is publicly accessible at http://<yourdomain>/robots.txt
+_This file is optional._ Web crawlers often traverse the web in order to index web content (i.e. Google) or to scan for email addresses (spammers often do this). This file allows you to define rules that specify which pages should not be searched. Note that you **should not** include any hidden information as this page is publicly accessible at http://<yourdomain>/robots.txt
 
 
 ## Javascript files
