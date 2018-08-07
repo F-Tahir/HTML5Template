@@ -7,6 +7,29 @@
 } 
 
 /* ==========================================================================
+   Setting REM for various devices
+   ========================================================================== */
+html {
+    /* 1 rem = font size of root element (html). font size of root element is 16px
+    by default, so  set 1 rem to be equal to 16px for screens bigger than 768px*/
+    font-size: 100%; 
+}
+@media only screen and (max-width: 768px) and (min-width: 415px) {
+    html {
+        /* For screens <= 768px, set 1rem = 14px*/
+        font-size: 87.5%; 
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    html {
+        /* For screens <0 414px, set 1rem = 12px*/
+        font-size: 75%; 
+    }
+}
+
+
+/* ==========================================================================
    User-defined styles
    ========================================================================== */
 .browserupgrade {
@@ -21,7 +44,7 @@
     padding: 10px;
 }
 
-.fixed-width-1280px-container {
+.fixed-width-wrapper {
     max-width: 1280px;
     margin: 0 auto;
 }

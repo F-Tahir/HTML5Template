@@ -25,12 +25,31 @@ This file contains all the basic structure for a website with header (containing
 1. Fill in the `<meta name="description" content="">` tag for SEO
 2. Fill in the `title` tag
 3. Remove everything between `<main>` tag as necessary.
+4. Remove comments in HTML as necessary.
 
 ### Notes
 
-1. Recommended to keep the `full-width-container` and `fixed-width-1280-container` class. `fixed-width-1280-container` sets the max-width to 1280px and centers the content on the page, leaving left and right margins. `full-width-container` wraps the `fixed-width` container so that full width background colors/gradients/padding etc can be applied. 
-2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-container` class, e.g. `<div class="full-width-container bg-red"></div>`. The containers **should not be changed** (except for the max-width property on the `fixed-width-1280-container` class)
+1. Recommended to keep the `full-width-container` and `fixed-width-wrapper` class. `fixed-width-wrapper` sets the max-width to 1280px (can be edited) and centers the content on the page, leaving left and right margins. `full-width-container` wraps the `fixed-width` container so that full width background colors/gradients/padding etc can be applied. 
+2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-container` class, e.g. `<div class="full-width-container bg-red"></div>`. The containers **should not be changed** (except for the max-width property on the `fixed-width-wrapper` class)
 3. Once an Apple icon is generated, this will also need to be added in the head. Use a favicon generator to generate this for you (discussed below), as guidelines change when new devices are released.
+
+#### Wrapper vs Container
+In programming languages the word **container** is generally used for structures that can contain more than one element.
+
+A **wrapper** instead is something that wraps around a single object to provide more functionalities and interfaces to it.
+
+Example:
+```
+<div class="container">
+    <header class="wrapper">
+        <h1>Title of page</h1>
+    </header>
+    <section class="wrapper">
+        <p>Some text here</p>
+    </section>
+</div>
+```
+
 
 ## main.css
 Contains styling for older browsers, as well as common helpers for screenreaders/element visibility. The existing rules in the file should not need to be edited and new rules can be added under the `User Defined Styles` section.
