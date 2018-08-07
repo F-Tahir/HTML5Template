@@ -28,8 +28,8 @@ This file contains all the basic structure for a website with header (containing
 
 ### Notes
 
-1. Recommended to keep the `full-width-wrapper` and `fixed-width-1280-wrapper` wrapper. `fixed-width-1280-wrapper` sets the max-width to 1280px and centers the content on the page, leaving left and right margins. `full-width-wrapper` wraps the `fixed-width` wrapper so that full width background colors/gradients/padding etc can be applied. 
-2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-wrapper` class, e.g. `<div class="full-width-wrapper bg-red"></div>`. The wrappers **should not be changed** (except for the max-width property on the `fixed-width-1280-wrapper` class)
+1. Recommended to keep the `full-width-container` and `fixed-width-1280-container` class. `fixed-width-1280-container` sets the max-width to 1280px and centers the content on the page, leaving left and right margins. `full-width-container` wraps the `fixed-width` container so that full width background colors/gradients/padding etc can be applied. 
+2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-container` class, e.g. `<div class="full-width-container bg-red"></div>`. The containers **should not be changed** (except for the max-width property on the `fixed-width-1280-container` class)
 3. Once an Apple icon is generated, this will also need to be added in the head. Use a favicon generator to generate this for you (discussed below), as guidelines change when new devices are released.
 
 ## main.css
