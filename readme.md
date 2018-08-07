@@ -28,20 +28,18 @@ This file contains all the basic structure for a website with header (containing
 
 ### Notes
 
-1. Recommended to keep the `full-width-wrapper` and `fixed-width-1280` wrapper. `fixed-width-1280` sets the max-width to 1280px and centers the content on the page, leaving left and right margins. `full-width-wrapper` wraps the `fixed-width` wrapper so that full width background colors/gradients/padding etc can be applied. These should not be changed (except for the max-width property on the `fixed-width-1280` class)
-2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-wrapper` class, e.g. `<div class="full-width-wrapper bg-red"></div>`. The wrappers *should not change*.
-
-Note that once an Apple icon is generated, this will also need to be added in the head. Use a favicon generator to generate this for you (recommended), as guidelines change when new devices are released.
+1. Recommended to keep the `full-width-wrapper` and `fixed-width-1280-wrapper` wrapper. `fixed-width-1280-wrapper` sets the max-width to 1280px and centers the content on the page, leaving left and right margins. `full-width-wrapper` wraps the `fixed-width` wrapper so that full width background colors/gradients/padding etc can be applied. 
+2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-wrapper` class, e.g. `<div class="full-width-wrapper bg-red"></div>`. The wrappers **should not be changed** (except for the max-width property on the `fixed-width-1280-wrapper` class)
+3. Once an Apple icon is generated, this will also need to be added in the head. Use a favicon generator to generate this for you (discussed below), as guidelines change when new devices are released.
 
 ## main.css
-Contains styling for older browsers, as well as common helpers for screenreaders/element visibility. This file should not need to be edited and styling can be added under the `User Defined Styles` section.
+Contains styling for older browsers, as well as common helpers for screenreaders/element visibility. The existing rules in the file should not need to be edited and new rules can be added under the `User Defined Styles` section.
 
 ## normalize.css/normalize.min.css
-Optional, but recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. 
+Optional, but highly recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. 
 
 **Not recommended**: If you wish to remove these files, also remove the stylesheet reference in `index.html`'s `header` tag
 
-**NOTE**: Ensure that the css files are updated every few months. Can get the latest here: https://necolas.github.io/normalize.css/
 
 ## humans.txt
 _This file is optional._ humans.txt is an initiative for who built the website. Read more at http://humanstxt.org/. 
@@ -60,10 +58,13 @@ All 3rd party plugins (e.g. jQuery, Select2, Modernizr.js) should go in to this 
 
 This file should include any custom JS that is common to all pages, i.e. opening and closing a privacy policy modal.
 
+#### Other files
+
+For sizeable chunks of JavaScript that are only used on a certain page, a new .js file should be created.
+
 ## .htaccess
 
 File used to configure a server. Most standard configuration should already be done and this file should not need to be edited.
-
 
 # Favicon Generators
 

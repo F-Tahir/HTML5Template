@@ -1,13 +1,18 @@
-/* Reset the default margin/padding on all elements*/
-* {
+
+/* ==========================================================================
+   Resets
+   ========================================================================== */
+*, *::before, *::after { 
+    box-sizing: border-box; 
+} 
+
+html, body {
     margin: 0;
-    padding: 0;
 }
 
 /* ==========================================================================
-   Styles for older browsers
+   User-defined styles
    ========================================================================== */
-
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -15,24 +20,6 @@
     padding: 0.2em 0;
 }
 
-header,
-section,
-footer,
-aside,
-nav,
-main,
-article,
-figure {
-    display: block;
-}
-
-
-/* ==========================================================================
-   User-defined styles
-   ========================================================================== */
-
-/* These wrappers should not change. For anything extra such as background colours, 
-create a new class*/
 .full-width-wrapper {
     width: 100%;
     padding: 10px;
@@ -46,7 +33,6 @@ create a new class*/
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
 .sr-only {
     position: absolute;
     left: -10000px;
