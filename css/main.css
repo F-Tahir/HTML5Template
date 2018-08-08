@@ -10,20 +10,20 @@
    Setting REM for various devices
    ========================================================================== */
 html {
-    /* 1 rem = font size of root element (html). font size of root element is 16px
-    by default, so  set 1 rem to be equal to 16px for screens bigger than 768px*/
+    /* Setting font-size: 100% means that we are setting the font size to be 100% of the parent
+    element. Because html does not have a parent element, the default browser size of 16px will 
+    be used. Hence 1 rem will be equal to the size of root element, which is 16px. */
     font-size: 100%; 
 }
 @media only screen and (max-width: 768px) and (min-width: 415px) {
     html {
-        /* For screens <= 768px, set 1rem = 14px*/
+        /* For screens <= 768px, set 1rem = 0.875*16 = 14px*/
         font-size: 87.5%; 
     }
 }
-
 @media only screen and (max-width: 414px) {
     html {
-        /* For screens <0 414px, set 1rem = 12px*/
+        /* For screens <= 414px, set 1rem = 0.75*16 = 12px*/
         font-size: 75%; 
     }
 }
