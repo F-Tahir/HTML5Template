@@ -41,12 +41,12 @@ html {
 
 .full-width-container {
     width: 100%;
-    padding: 10px;
 }
 
 .fixed-width-wrapper {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 10px;
 }
 
 /* ==========================================================================
