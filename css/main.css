@@ -1,37 +1,42 @@
-
 /* ==========================================================================
    Resets
    ========================================================================== */
-*, *::before, *::after { 
-    box-sizing: border-box; 
-} 
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 /* ==========================================================================
    Setting REM for various devices
    ========================================================================== */
+
 html {
     /* Setting font-size: 100% means that we are setting the font size to be 100% of the parent
     element. Because html does not have a parent element, the default browser size of 16px will 
     be used. Hence 1 rem will be equal to the size of root element, which is 16px. */
-    font-size: 100%; 
+    font-size: 100%;
 }
+
 @media only screen and (max-width: 768px) and (min-width: 415px) {
     html {
         /* For screens <= 768px, set 1rem = 0.875*16 = 14px*/
-        font-size: 87.5%; 
-    }
-}
-@media only screen and (max-width: 414px) {
-    html {
-        /* For screens <= 414px, set 1rem = 0.75*16 = 12px*/
-        font-size: 75%; 
+        font-size: 87.5%;
     }
 }
 
+@media only screen and (max-width: 414px) {
+    html {
+        /* For screens <= 414px, set 1rem = 0.75*16 = 12px*/
+        font-size: 75%;
+    }
+}
 
 /* ==========================================================================
    User-defined styles
    ========================================================================== */
+
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -64,6 +69,58 @@ html {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.remove-padding {
+    padding: 0;
+}
+
+.remove-margin {
+    margin: 0;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+
 .screenreader-only {
     position: absolute;
     left: -10000px;
