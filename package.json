@@ -4,7 +4,7 @@
   "description": "Template for starting web projects.",
   "main": "index.js",
   "scripts": {
-    "compile:scss": "node-sass scss/ -o css/ --watch --recursive",
+    "compile:scss": "node-sass scss/ -o css/",
     "watch:scss": "watch \"npm run compile:scss\" scss --interval=1"
   },
   "author": "Faizan Tahir",
