@@ -69,7 +69,7 @@ To define any new rules, type them under the `User defined styles` section.
 ### compiling SCSS
 SCSS files will need to be compiled to CSS. A script has been set up to do this in `package.json`. 
 
-Simply run `npm run scss` in a terminal and any scss files in the `scss/` folder will be watched. Whenever any changes are made to this folder, the `scss` files will be automatically compiled to `css` and output to the `css/` folder. In order to stop watching, stop running the command on your terminal (normally `Ctrl+C` on Windows/Linux and `Cmd+C` on Mac). Once you stop running the script, this will need to be restarted in order to start watching the files again.
+Simply run `npm run watch:scss` in a terminal and any scss files in the `scss/` folder will be watched.  Whenever any changes are made to this folder, the `watch;scss` script will automatically compile `scss` to `css` and output to the `css/` folder by running the `npm run compile:scss` script also in `package.json`. In order to stop watching, stop running the command on your terminal (normally `Ctrl+C` on Windows/Linux and `Cmd+C` on Mac). Once you stop running the script, this will need to be restarted in order to start watching the files again.
 
 ## normalize.css/normalize.min.css
 Optional, but highly recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. 

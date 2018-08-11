@@ -4,11 +4,13 @@
   "description": "Template for starting web projects.",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass scss/ -o css/ --watch --recursive"
+    "compile:scss": "node-sass scss/ -o css/ --watch --recursive",
+    "watch:scss": "watch \"npm run compile:scss\" scss --interval=1"
   },
   "author": "Faizan Tahir",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.9.3",
+    "watch": "^1.0.2"
   }
 }
