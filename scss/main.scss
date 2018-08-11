@@ -4,7 +4,7 @@
    Setting REM for various screen sizes. For full sized screens, setting font
    size to be 100% of html's parent, which is 16px by default, set by the browser's 
    stylesheet. Hence for full sized screens, 1 rem = 16px. For medium and small 
-   screens, 1 rem = 87.5% and 75% of default size, which is 14px and 12px 
+   screens, 1 rem = 87.5% and 81.25% of default size, which is 14px and 13px 
    respectively.
    ========================================================================== */
 
@@ -14,7 +14,7 @@ html {
         font-size: 87.5%;
     }
     @media only screen and (max-width: $breakpoint-small-screen) {
-        font-size: 75%;
+        font-size: 81.25%;
     }
 }
 
