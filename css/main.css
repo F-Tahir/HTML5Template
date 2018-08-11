@@ -5,7 +5,8 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -96,7 +97,6 @@ blockquote {
     border-left: 16px solid var(--primary);
     border-right: 4px solid var(--primary-lighter);
     -webkit-box-shadow: 3px 2px 18px 0px rgba(153, 153, 153, 1);
-    -moz-box-shadow: 3px 2px 18px 0px rgba(153, 153, 153, 1);
     box-shadow: 3px 2px 18px 0px rgba(153, 153, 153, 1);
 }
 
@@ -156,9 +156,15 @@ blockquote::before {
 }
 
 .vertical-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .responsive-image {
