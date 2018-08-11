@@ -1,43 +1,19 @@
+@import "variables";
+@import "helpers";
 /* ==========================================================================
-   Resets
-   ========================================================================== */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-/* ==========================================================================
-   Variables
-   ========================================================================== */
-
-$break-medium: 768px;
-$break-small: 414px;
-$primary: #00a9e0;
-$primary-light: #7fd4e8;
-$primary-lighter: #cceeed;
-$secondary: #FF6600;
-$secondary-light: #ffb278;
-$secondary-lighter: #ffe0c0;
-$body-font-color: #404040;
-
-
-/* ==========================================================================
-   Setting REM for various screen sizes.
+   Setting REM for various screen sizes. For full sized screens, setting font
+   size to be 100% of html's parent, which is 16px by default, set by the browser's 
+   stylesheet. Hence for full sized screens, 1 rem = 16px. For medium and small 
+   screens, 1 rem = 87.5% and 75% of default size, which is 14px and 12px 
+   respectively.
    ========================================================================== */
 
 html {
-    /* Setting font-size: 100% means setting the font size to be 100% of the parent
-    element. Because html does not have a parent element, the default browser size of 16px will 
-    be used. Hence 1 rem will be equal to the size of root element, which is 16px. */
     font-size: 100%;
-    @media only screen and (max-width: $break-medium) and (min-width: $break-small+1) {
-        /* For screens <= 768px, set 1rem = 0.875*16 = 14px*/
+    @media only screen and (max-width: $breakpoint-medium-screen) and (min-width: $breakpoint-small-screen+1) {
         font-size: 87.5%;
     }
-    @media only screen and (max-width: $break-small) {
-        /* For screens <= 414px, set 1rem = 0.75*16 = 12px*/
+    @media only screen and (max-width: $breakpoint-small-screen) {
         font-size: 75%;
     }
 }
@@ -45,6 +21,12 @@ html {
 /* ==========================================================================
    User-defined styles
    ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 body {
     color: $body-font-color;
@@ -64,22 +46,24 @@ section {
     width: 100%;
 }
 
-.large-wrapper {
-    max-width: 1280px;
+%wrapper {
     margin: 0 auto;
     padding: 0.625rem;
+}
+
+.large-wrapper {
+    @extend %wrapper;
+    max-width: $large-wrapper-width;
 }
 
 .medium-wrapper {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0.625rem;
+    @extend %wrapper;
+    max-width: $medium-wrapper-width;
 }
 
 .small-wrapper {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0.625rem;
+    @extend %wrapper;
+    max-width: $small-wrapper-width;
 }
 
 blockquote {
@@ -89,9 +73,9 @@ blockquote {
     position: relative;
     line-height: 1.2;
     text-align: justify;
-    border-left: 16px solid $primary;
-    border-right: 4px solid $primary-light;
-    box-shadow: 3px 2px 18px 0px rgba(153, 153, 153, 1);
+    border-left: 1rem solid $primary;
+    border-right: 0.25rem solid $primary-light;
+    box-shadow: 0.2rem 0.125rem 1rem 0px rgba(153, 153, 153, 1);
 }
 
 blockquote::before {
@@ -103,100 +87,4 @@ blockquote::before {
     position: absolute;
     left: 0.625rem;
     top: 0.4rem;
-}
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-justify {
-    text-align: justify;
-}
-
-.inline-block {
-    display: inline-block;
-}
-
-.inline {
-    display: inline;
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
-}
-
-.remove-padding {
-    padding: 0;
-}
-
-.remove-margin {
-    margin: 0;
-}
-
-.vertical-center {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-}
-
-.responsive-image {
-    max-width: 100%;
-    height: auto;
-}
-
-.screenreader-only {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    top: auto;
-    overflow: hidden;
-}
-
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
-
-.invisible {
-    visibility: hidden;
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
 }
