@@ -1,0 +1,14 @@
+{
+  "name": "html5template",
+  "version": "1.0.0",
+  "description": "Template for starting web projects.",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass scss/ -o css/ --watch --recursive"
+  },
+  "author": "Faizan Tahir",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  }
+}
