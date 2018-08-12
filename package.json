@@ -6,7 +6,7 @@
   "scripts": {
     "build": "ncp src dist && rimraf dist/scss && rimraf dist/js",
     "watch": "watch \"npm run compile:scss\" src/scss --interval=1",
-    "compile:scss": "node-sass src/scss/main.scss src/css/main.min.css --output-style compressed"
+    "compile:scss": "node-sass src/scss/main.scss src/css/main.min.css --output-style compressed --source-map src/scss/map"
   },
   "author": "Faizan Tahir",
   "license": "ISC",
