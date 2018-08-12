@@ -2,3 +2,4 @@ node_modules
 *.css
 !normalize.css
 !normalize.min.css
+dist
