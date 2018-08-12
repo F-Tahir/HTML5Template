@@ -4,13 +4,21 @@
   "description": "Template for starting web projects.",
   "main": "index.js",
   "scripts": {
-    "compile:scss": "node-sass scss/ -o css/",
-    "watch:scss": "watch \"npm run compile:scss\" scss --interval=1"
+    "start": "npm run build && run-p watch serve",
+    "watch": "onchange \"src\" -- run-s build",
+    "serve": "browser-sync dist -w",
+    "compile-scss": "node-sass src/scss/main.scss dist/css/main.min.css --output-style compressed",
+    "build": "ncp src dist && npm run compile-scss && rimraf dist/scss && rimraf dist/js"
   },
   "author": "Faizan Tahir",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "ncp": "^2.0.0",
     "node-sass": "^4.9.3",
-    "watch": "^1.0.2"
-  }
+    "npm-run-all": "^4.1.3",
+    "onchange": "^4.1.0",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {}
 }
