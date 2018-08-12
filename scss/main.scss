@@ -1,5 +1,10 @@
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+@import "vendor/normalize";
 @import "variables";
 @import "helpers";
+
 /* ==========================================================================
    Setting REM for various screen sizes. For full sized screens, setting font
    size to be 100% of html's parent, which is 16px by default, set by the browser's 

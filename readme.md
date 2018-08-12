@@ -1,11 +1,12 @@
 # Setup
 
 
+
 ## Cloning
 Type `git clone https://github.com/F-Tahir/HTML5Template.git foldername` to clone the project
 
 ## Getting packages via npm
-This project uses Node packages to compile SCSS files into vanilla CSS. Make sure you have Node.js installed, and this will also install _npm_. To install npm packages associated with this project, do the following:
+This project uses `Node` packages to compile SCSS files into vanilla CSS. Make sure you have Node.js installed, and this will also install _npm_. `Node` packages are not checked in, and will have to be installed after cloning the project. After cloning, to install npm packages associated with this project, do the following:
 
 1. Navigate into the cloned project on terminal (`cd path/to/proj`) 
 2. Type `npm install`
@@ -13,7 +14,7 @@ This project uses Node packages to compile SCSS files into vanilla CSS. Make sur
 4. Edit `package.json` and `package-lock.json` (if it exists) to change the project name and description if required. Normally this wouldn't be done when working on a production project, but as this project is just a template, the default project name and description will need to be overridden.
 
 ## Version controlling the cloned project
-Before version controlling, make sure the project is using the latest version of _normalize.css_ from here: https://necolas.github.io/normalize.css/. All other files are custom and should not get outdated.
+Before version controlling, make sure the project is using the latest version of _normalize.css_ from here: https://necolas.github.io/normalize.css/. If the file needs updated, copy the contents of the file from GitHub and replace it with the contents in `scss/vendor/_normalize.scss`.
 
 **NOTE:** Make sure that `node_modules` is NOT checked in. `package.json` and `package_lock.json` can be checked in. To make sure `node_modules` does not get checked in, ensure that a `.gitignore` exists, ignoring the `node_modules` folder.
 
@@ -39,42 +40,50 @@ This file contains all the basic structure for a website with header (containing
 
 ### Notes
 
-1. Recommended to keep the `full-width-container` and `fixed-width-wrapper` class. `fixed-width-wrapper` sets the max-width to 1280px (can be edited) and centers the content on the page, leaving left and right margins. `full-width-container` wraps the `fixed-width` container so that full width background colors/gradients/padding etc can be applied. 
-2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-container` class, e.g. `<div class="full-width-container bg-red"></div>`. The containers **should not be changed** (except for the max-width property on the `fixed-width-wrapper` class)
+1. Recommended to keep the `full-width-container` and `small/medium/large-wrapper` classes. The `wrapper` classes set the max-width to 1280px, 960px, or 768px depending on which one is used, and centers the content on the page, leaving left and right margins. `full-width-container` contains the `wrapper` classes so that full width background colors/gradients/padding etc can be applied. 
+2. If a full width background color is needed, create a new class e.g. `bg-red { background-color: red; }` and apply it to the outer div with the `full-width-container` class, e.g. `<div class="full-width-container bg-red"></div>`. The containers **should not be changed**.
 3. Once an Apple icon is generated, this will also need to be added in the head. Use a favicon generator to generate this for you (discussed below), as guidelines change when new devices are released.
 
-#### Wrapper vs Container
-In programming languages the word **container** is generally used for structures that can contain more than one element.
-
-A **wrapper** instead is something that wraps around a single object to provide more functionalities and interfaces to it.
-
-Example:
-```
-<div class="container">
-    <header class="wrapper">
-        <h1>Title of page</h1>
-    </header>
-    <section class="wrapper">
-        <p>Some text here</p>
-    </section>
-</div>
-```
 
 
-## scss/main.scss
-An `scss` file in the `scss/` folder which contains basic helper functions, styling for older browsers and default styling to configure the `rem` size on different page layouts. This file also contains variables for primary and secondary colours which can be configured.
+## SCSS Files
+
+### main.scss
+
+This is the main SCSS file which contains imports for other partial SCSS files, including `vendor` stylesheets, `_helper` stylesheet and a `_variable` stylesheets. Because this is the main stylesheet and all other stylesheets are imported into this one, this is the only stylesheet which should need compiled into css.
 
 To define any new rules, type them under the `User defined styles` section.
 
-### compiling SCSS
-SCSS files will need to be compiled to CSS. A script has been set up to do this in `package.json`. 
+To create a new partial file to be imported into `main.scss`, prefix it with a `_` so that node-sass does not attempt to compile it into `css`. See the "Compiling main.scss" section for more information.
 
-Simply run `npm run watch:scss` in a terminal and any scss files in the `scss/` folder will be watched.  Whenever any changes are made to this folder, the `watch;scss` script will automatically compile `scss` to `css` and output to the `css/` folder by running the `npm run compile:scss` script also in `package.json`. In order to stop watching, stop running the command on your terminal (normally `Ctrl+C` on Windows/Linux and `Cmd+C` on Mac). Once you stop running the script, this will need to be restarted in order to start watching the files again.
+### _variables.scss (partial)
+This is a partial which defines all variables used in `main.scss`, such as primary and tertiary colours, breakpoints and font sizes. This is included as an `import` in `main.scss` and does not need to be compiled separately.
 
-## normalize.css/normalize.min.css
-Optional, but highly recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. 
+### _helper.scss (partial)
+This is a partial which defines a list of helper functions which can be used in the project, such as aligning text, removing padding/margin and hiding elements. This is included as an `import` in `main.scss` and does not need to be compiled separately.
 
-**Not recommended**: If you wish to remove these files, also remove the stylesheet reference in `index.html`'s `header` tag
+If stylings are being applied often, they should probably be migrated to this file.
+
+### Vendor files
+Vendor files are third party stylesheets (such as normalize.css as used in this project). They should normally be imported into `main.scss` so that only one `css` file is generated. In order to import a third party stylesheet into `main.css`, it must be a partial. To make it a partial, prefix it with `_`. This will also mean that a `.css` file is not generated when compiling.
+
+If third party stylesheets are in `*.css` format instead of `*.scss`, simply renaming them to `_*.scss` allows you to import them into `main.scss`, so do this if a third party stylesheet does not have a `.scss` format.
+
+If the vendor file should not be a partial, then don't prefix it with `_`, and when compiling (see below), a `*.css` file will be generated, which can then be referenced in your html file.
+
+### _normalize.scss
+Optional, but highly recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. This is imported into `main.scss` in order to limit the number of HTTP requests.
+
+**Not recommended**: If you wish to remove these files, also remove the `import` from `main.scss`.
+
+#### Compiling SCSS files
+A script has been set up to compile any non-partial `scss` files automatically.
+
+Simply run `npm run watch:scss` in a terminal and any scss files in the `scss/` folder will be watched.  Whenever any changes are made to this folder (partial or non-partial files), the `watch:scss` script will automatically compile `scss` files to `css` format and output to the `css/` folder by running the `npm run compile:scss` script also in `package.json`. 
+
+The `compile:scss` script compiles any **non-partial** `*.scss` files in the `scss` folder into `*.css` and saves them to the `css` folder, using the same name. E.g. `scss/main.scss` will be compiled as `css/main.css`.  Hence, if `normalize.scss` (without a `_`) was saved in the `scss` folder and the `watch:scss` script was running, a `normalize.css` file would also be generated because `normalize.scss` was not saved as a partial. **So make sure you prefix all partials with `_` or `.css` versions will be generated.**
+
+In order to stop watching, stop running the command on your terminal (normally `Ctrl+C` on Windows/Linux and `Cmd+C` on Mac). 
 
 ## Javascript files
 
