@@ -120,6 +120,14 @@ In order to stop watching, stop running the command on your terminal (normally `
 
 All 3rd party plugins (e.g. jQuery, Select2, Modernizr.js) should go in to this folder.
 
+#### main.js file
+
+This file should include any custom JS that is common to all pages, i.e. opening and closing a privacy policy modal.
+
+#### Other files
+
+For sizeable chunks of JavaScript that are only used on a certain page, a new .js file should be created.
+
 ## npm files
 
 Checked in are 2 files related to `npm`: `package.json` and `package_lock.json`. `node_modules` is also associated with `npm`, but should NEVER be checked in, instead to generate the `node_modules` folder, `npm init` should be typed into the terminal and this wil install all the dependencies listed in `package.json`.
@@ -148,13 +156,6 @@ This folder contains all the dependencies of the project, as listed in `package.
 
 However, it **should not** be checked into version control. In order to generate this folder when cloning a repository, the user must type `npm install` which will create this folder and install all the dependencies that are listed in `package.json`. This is the first thing that should be done when cloning a repository.
 
-#### main.js file
-
-This file should include any custom JS that is common to all pages, i.e. opening and closing a privacy policy modal.
-
-#### Other files
-
-For sizeable chunks of JavaScript that are only used on a certain page, a new .js file should be created.
 
 ## .htaccess
 
