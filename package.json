@@ -4,15 +4,28 @@
   "description": "Template for starting web projects.",
   "main": "index.js",
   "scripts": {
-    "build": "ncp src dist && rimraf dist/scss && rimraf dist/js",
-    "watch": "watch \"npm run compile:scss\" src/scss --interval=1",
-    "compile:scss": "node-sass src/scss/main.scss src/css/main.min.css --output-style compressed --source-map src/scss/map"
+    "reinstall": "rm -rf node_modules && npm cache verify && npm install",
+    "clean": "rm -rf dist",
+    "build": "run-s copy:*",
+    "rebuild": "run-s clean build",
+    "watch:html": "onchange \"src/**/*.html\" -- npm run copy:html",
+    "watch:scss": "onchange \"src/**/*.scss\" -- npm run copy:compiled-css",
+    "watch:root-misc": "onchange \"src/!(*.html)\" -- npm run copy:misc-files",
+    "copy:html": "cpx \"src/**/*.html\" \"dist\"",
+    "copy:compiled-css": "node-sass src/scss/main.scss dist/css/main.min.css --output-style compressed",
+    "copy:misc-files": "cpx \"src/*.txt\" \"dist\" && cpx \"src/.htaccess\" \"dist\" && cpx \"src/*.ico\" \"dist\"",
+    "serve": "browser-sync start --server \"dist\" --files \"dist\" -w",
+    "watch": "run-p watch:*",
+    "start": "npm run rebuild && run-p watch serve"
   },
   "author": "Faizan Tahir",
   "license": "ISC",
   "devDependencies": {
-    "ncp": "^2.0.0",
+    "browser-sync": "^2.24.6",
+    "cpx": "^1.5.0",
     "node-sass": "^4.9.3",
-    "watch": "^1.0.2"
-  }
+    "npm-run-all": "^4.1.3",
+    "onchange": "^4.1.0"
+  },
+  "dependencies": {}
 }

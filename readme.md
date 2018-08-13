@@ -6,7 +6,7 @@
 Type `git clone https://github.com/F-Tahir/HTML5Template.git foldername` to clone the project
 
 ## Getting packages via npm
-This project uses `Node` packages to compile SCSS files into vanilla CSS. Make sure you have Node.js installed, and this will also install _npm_. `Node` packages are not checked in, and will have to be installed after cloning the project. After cloning, to install npm packages associated with this project, do the following:
+This project uses `Node` packages for the various steps in the build process. Make sure you have Node.js installed, and this will also install _npm_. `Node` packages are not checked in, and will have to be installed after cloning the project. After cloning, to install npm packages associated with this project, do the following:
 
 1. Navigate into the cloned project on terminal (`cd path/to/proj`) 
 2. Type `npm install`
@@ -26,6 +26,34 @@ Before version controlling, make sure the project is using the latest version of
 6. Type `git commit -m "initial commit"
 7. Finally, push to remote by typing `git push -u origin master`
 
+A .gitignore has been created, and  contains `dist` and `node_modules`. These two folders should never be removed from `.gitignore` as they should not be checked in.
+
+
+
+## Building the project
+
+To compile all `scss` files and move `.html` and other files into `dist/`, type `npm run rebuild`. This will create a `dist/` folder, moving in all files, as well as compiled SCSS. `index.html` can then be run from the `dist/` folder.
+
+Developing should be carried out in the `src/` folder, with files moved across to `dist/` for testing. Scripts have been set up to automatically watch for file changes, compiling files (where necessary, e.g. `scss` files) and copying them to `dist/`.
+
+To run this watcher, type `npm run start`. This will run various watchers in the `src` directory:
+* a `.html` watcher where any changes to a `.html` file are copied to `dist/`
+* a `.scss` watcher where any changes to a `.scss` file are compiled to `.css` and copied to `dist/css`
+* a `misc` watcher where any changes to `.ico`, `.txt` and `.htaccess` files are compiled to `.css` and copied to `dist`.
+    * Other files can be added to this watcher as and when needed.
+
+As well as watching for files in the background, running `npm run start` will start `Browser-sync`, watching for any changes to the `dist/` folder. When any changes occur in `dist/` (i.e. a `html` watcher copying a file over once it has been edited in `dist`), then the browser will automatically reload.
+
+### Workflow
+
+The workflow should be something like this, generally:
+* Two folders:
+    * `src` and `dist` as described. `dist` does not get checked in.
+    * Develop in `src` and use the `npm` scripts (i.e. `npm run watch` or `npm run start` if you want to use Browser-sync) to copy files from `src` to `dist`.
+* Make changes to the project in `src`
+* use npm scripts to copy files from `src` to `dist`:
+    * `npm run watch` if you don't care about Browser-sync. This will watch for changes in `src` and copy to `dist`
+    * `npm run start` if you also want to utilise Browser-sync. This will watch for changes in `src`, copy them to `dist` _and_ refresh the browser to show any changes
 
 # Files
 
@@ -79,9 +107,10 @@ Optional, but highly recommended css files that allow various browsers to render
 #### Compiling SCSS files
 A script has been set up to compile any non-partial `scss` files automatically.
 
-Simply run `npm run watch:scss` in a terminal and any scss files in the `scss/` folder will be watched.  Whenever any changes are made to this folder (partial or non-partial files), the `watch:scss` script will automatically compile `scss` files to `css` format and output to the `css/` folder by running the `npm run compile:scss` script also in `package.json`. 
+Run `npm run copy:compiled:scss` in a terminal to compile the `main.scss` file into the `dist` folder. You can also set up a watcher to compile `main.scss` automatically when changes are made - type `npm run watch:scss` into a terminal.
+Whenever any changes are made in the `scss` folder (partial or non-partial files), the `watch:scss` script will automatically compile `scss` files to `css` format and output to `dist/css/`. 
 
-The `compile:scss` script compiles any **non-partial** `*.scss` files in the `scss` folder into `*.css` and saves them to the `css` folder, using the same name. E.g. `scss/main.scss` will be compiled as `css/main.css`.  Hence, if `normalize.scss` (without a `_`) was saved in the `scss` folder and the `watch:scss` script was running, a `normalize.css` file would also be generated because `normalize.scss` was not saved as a partial. **So make sure you prefix all partials with `_` or `.css` versions will be generated.**
+The `copy:compile:scss` script compiles any **non-partial** `*.scss`. If `normalize.scss` (without a `_`) was saved in the `scss` folder and the `watch:scss` script was running, a `normalize.css` file would also be generated because `normalize.scss` was not saved as a partial. **So make sure you prefix all partials with `_` or `.css` versions will be generated.**
 
 In order to stop watching, stop running the command on your terminal (normally `Ctrl+C` on Windows/Linux and `Cmd+C` on Mac). 
 
@@ -102,7 +131,6 @@ This file:
     * **dev dependencies** are modules that shouldn't go into production code, e.g. SCSS compilers, TypeScript compilers, build tools, and script runners.
     * **production dependencies** are modules that the website depends on and wouldn't function without.
     * To install dev dependencies, type `npm install -D package-name`. To install production dependencies, type `npm install package-name`.
-    * To install 
 * allows you to specify versions of the package that the project can use;
 * stores information about your project (i.e. description, author, version).
 
