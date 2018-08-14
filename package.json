@@ -4,7 +4,7 @@
   "description": "Template for starting web projects.",
   "main": "index.js",
   "scripts": {
-    "reinstall": "rm -rf node_modules && npm cache verify && npm install",
+    "reinstall": "rm -rf node_modules package-lock.json && npm cache verify && npm install --no-optional && npm dedupe",
     "clean": "rm -rf dist",
     "build": "run-s copy:*",
     "rebuild": "run-s clean build",
@@ -12,7 +12,7 @@
     "watch:scss": "onchange \"src/**/*.scss\" -- npm run copy:compiled-css",
     "watch:root-misc": "onchange \"src/!(*.html)\" -- npm run copy:misc-files",
     "copy:html": "cpx \"src/**/*.html\" \"dist\"",
-    "copy:compiled-css": "node-sass src/scss/main.scss dist/css/main.min.css --output-style compressed",
+    "copy:compiled-css": "node-sass src/scss/ -o dist/css/ --output-style compressed",
     "copy:misc-files": "cpx \"src/*.txt\" \"dist\" && cpx \"src/.htaccess\" \"dist\" && cpx \"src/*.ico\" \"dist\"",
     "serve": "browser-sync start --server \"dist\" --files \"dist\" -w",
     "watch": "run-p watch:*",
@@ -27,5 +27,7 @@
     "npm-run-all": "^4.1.3",
     "onchange": "^4.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  }
 }

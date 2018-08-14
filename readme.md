@@ -93,16 +93,16 @@ This is a partial which defines a list of helper functions which can be used in 
 If stylings are being applied often, they should probably be migrated to this file.
 
 ### Vendor files
-Vendor files are third party stylesheets (such as normalize.css as used in this project). They should normally be imported into `main.scss` so that only one `css` file is generated. In order to import a third party stylesheet into `main.css`, it must be a partial. To make it a partial, prefix it with `_`. This will also mean that a `.css` file is not generated when compiling.
+Vendor files are third party stylesheets. They should be installed via `npm` and _normally_ (not always) be imported into `main.scss` so that only one `css` file is generated. To do so, reference the file from `node_modules` without the `.css` extension. For example: `@import "../../node_modules/normalize.css/normalize";` will import `normalize.css` from `node_modules`.
 
-If third party stylesheets are in `*.css` format instead of `*.scss`, simply renaming them to `_*.scss` allows you to import them into `main.scss`, so do this if a third party stylesheet does not have a `.scss` format.
+If the stylesheet is not available through `npm`, then store a local copy from the developers website in `src\scss` as a partial. Save it as `.scss` instead of `.css`, and import it into `main.scss` if it makes sense to do so. To make it a partial, prefix it with `_`. Prefixing it with `_` will also mean that node-sass will not compile it as a `.css` on its own, as it will be compiled as part of `main.scss`.
 
-If the vendor file should not be a partial, then don't prefix it with `_`, and when compiling (see below), a `*.css` file will be generated, which can then be referenced in your html file.
+If the vendor file should not be a partial, then don't prefix it with `_` and compile it using `node-sass` so that a `*.css` file is generated, which can then be referenced in your html file. See below on how to compile `scss` files.
 
-### _normalize.scss
-Optional, but highly recommended css files that allow various browsers to render elements consistently. Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. This is imported into `main.scss` in order to limit the number of HTTP requests.
 
-**Not recommended**: If you wish to remove these files, also remove the `import` from `main.scss`.
+### normalize.css
+This is a third party stylesheet obtained through `npm` and imported into `main.scss` (`@import "../../node_modules/normalize.css/normalize";`). Some browsers have bugs/inconsistencies that lead to incorrect rendering of an element and including this file fixes these issues. This is imported into `main.scss` in order to limit the number of HTTP requests.
+
 
 #### Compiling SCSS files
 A script has been set up to compile any non-partial `scss` files automatically.
