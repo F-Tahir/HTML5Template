@@ -4,7 +4,7 @@
   "description": "Template for starting web projects.",
   "main": "index.js",
   "scripts": {
-    "reinstall": "rm -rf node_modules package-lock.json && npm cache verify && npm install --no-optional && npm dedupe",
+    "reinstall": "rm -rf node_modules package-lock.json && npm cache verify && npm installd && npm dedupe",
     "clean": "rm -rf dist",
     "build": "run-s copy:*",
     "rebuild": "run-s clean build",
